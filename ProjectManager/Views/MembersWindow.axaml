@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:ProjectManager.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ProjectManager.Views.MembersWindow"
+        x:DataType="viewModels:MembersViewModel"
+        Title="MembersWindow">
+    <DockPanel LastChildFill="True">
+        <StackPanel Spacing="15" Orientation="Horizontal" DockPanel.Dock="Top">
+            <TextBox MinWidth="256" Text="{Binding SearchQuery, Mode=TwoWay}"/>
+            <ComboBox SelectedIndex="{Binding SelectedSearchColumn}">
+                <ComboBoxItem>Все столбцы</ComboBoxItem>
+                <ComboBoxItem>Код</ComboBoxItem>
+                <ComboBoxItem>ФИО</ComboBoxItem>
+                <ComboBoxItem>Должность</ComboBoxItem>
+            </ComboBox>
+            <CheckBox IsChecked="{Binding IsSortByDescending}">Сортировка по убыванию</CheckBox>
+            <Button Content="Добавить" Command="{Binding AddMemberCommand}"/>
+        </StackPanel>
+        <DataGrid x:Name="DataGrid"
+                  ItemsSource="{Binding Members}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding MemberId}" Header="Код"/>
+                <DataGridTextColumn Binding="{Binding FullName}" Header="ФИО"/>
+                <DataGridTextColumn Binding="{Binding Job.Name}" Header="Должность"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

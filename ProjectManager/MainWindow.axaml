@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:ProjectManager.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ProjectManager.MainWindow"
+        x:DataType="viewModels:MainWindowViewModel"
+        Title="ProjectManager">
+    <StackPanel Orientation="Vertical" Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Проекты"/>
+        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Участники" Command="{Binding OpenMembersCommand}"/>
+        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Участники проектов"/>
+        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Направления проектов"/>
+        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Должности"/>
+    </StackPanel>
+</Window>
